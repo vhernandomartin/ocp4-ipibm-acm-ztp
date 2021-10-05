@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: assisted-deployment-ssh-private-key
+  namespace: open-cluster-management
+stringData:
+  ssh-privatekey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    <INSERT YOUR SSH PRIVATE KEY>
+    -----END OPENSSH PRIVATE KEY-----
+type: Opaque

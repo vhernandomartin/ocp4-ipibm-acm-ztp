@@ -1,0 +1,21 @@
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: mgmt-spoke1
+  namespace: mgmt-spoke1
+spec:
+  clusterDeploymentRef:
+    name: mgmt-spoke1
+  imageSetRef:
+    name: openshift-v4.8.0
+  apiVIP: "2510:49:0:1101::10"
+  ingressVIP: "2510:49:0:1101::11"
+  networking:
+    clusterNetwork:
+      - cidr: "fd03::/48"
+        hostPrefix: 64
+    serviceNetwork:
+      - "fd04::/112"
+  provisionRequirements:
+    controlPlaneAgents: 3
+  sshPublicKey: "<INSERT_YOUR_ID_RSA_PUB_KEY>"

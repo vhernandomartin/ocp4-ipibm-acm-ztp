@@ -1,0 +1,7 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterImageSet
+metadata:
+  name: openshift-v4.8.0
+  namespace: open-cluster-management
+spec:
+  releaseImage: ipibm-installer.lab-ipibm:5000/ocp4:4.8-x86_64

@@ -1,0 +1,27 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+  namespace: open-cluster-management
+  annotations:
+    unsupported.agent-install.openshift.io/assisted-service-configmap: "assisted-service-config"
+spec:
+  databaseStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 30Gi
+  filesystemStorage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 30Gi
+  mirrorRegistryRef:
+    name: "lab-spoke-mirror-config"
+  osImages:
+    - openshiftVersion: "4.8"
+      version: "RHCOS_RELEASE"
+      url: "http://INSTALLER_IP/RHCOS_ISO"
+      rootFSUrl: "http://INSTALLER_IP/RHCOS_PXE_ROOTFS"

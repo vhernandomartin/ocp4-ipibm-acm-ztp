@@ -1,0 +1,19 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: mgmt-spoke1-masterID
+  namespace: mgmt-spoke1
+  labels:
+    infraenvs.agent-install.openshift.io: "mgmt-spoke1"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "spoke1-master-ID"
+    bmac.agent-install.openshift.io/role: "master"
+spec:
+  online: true
+  bmc:
+    address: REDFISH_URL
+    credentialsName: bmc-secret1
+    disableCertificateVerification: true
+  bootMACAddress: aa:aa:aa:aa:de:0ID
+  automatedCleaningMode: disabled

@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab-spoke-mirror-config
+  namespace: open-cluster-management
+  labels:
+    app: assisted-service
+data:
+  ca-bundle.crt: |
+    -----BEGIN CERTIFICATE-----
+    <INSERT_YOUR_REGISTRY_CRT_HERE>
+    -----END CERTIFICATE-----
+  registries.conf: |
+    unqualified-search-registries = ["registry.access.redhat.com", "docker.io"]
+    
+    [[registry]]
+      prefix = ""
+      location = "registry.redhat.io/rhacm2"
+      mirror-by-digest-only = true
+     
+      [[registry.mirror]]
+        location = "ipibm-installer.lab-spoke:5000/rhacm2"
+
+    [[registry]]
+      prefix = ""
+      location = "quay.io/ocpmetal"
+      mirror-by-digest-only = true
+      
+      [[registry.mirror]]
+        location = "ipibm-installer.lab-spoke:5000/ocpmetal"
+
+    [[registry]]
+      prefix = ""
+      location = "quay.io/openshift-release-dev/ocp-v4.0-art-dev"
+      mirror-by-digest-only = true
+
+      [[registry.mirror]]
+        location = "ipibm-installer.lab-spoke:5000/ocp4"
+
+    [[registry]]
+      prefix = ""
+      location = "quay.io/openshift-release-dev/ocp-release"
+      mirror-by-digest-only = true
+
+      [[registry.mirror]]
+        location = "ipibm-installer.lab-spoke:5000/ocp4"
+

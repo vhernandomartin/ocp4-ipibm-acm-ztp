@@ -1,0 +1,14 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: mgmt-spoke1
+  namespace: mgmt-spoke1
+spec:
+  additionalNTPSources:
+    - clock.redhat.com
+  clusterRef:
+    name: mgmt-spoke1
+    namespace: mgmt-spoke1
+  sshAuthorizedKey: "<INSERT_YOUR_ID_RSA_PUB_KEY>"
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
