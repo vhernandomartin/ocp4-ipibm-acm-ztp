@@ -12,4 +12,6 @@ For additional info on what is ZTP and how it can be deployed, check the documen
 * Check and adjust the scripts based on your preferences, you will find many network parameters, name & network servers that might not fit your requirements, so feel free to change any parameter value you consider.
 
 ## Procedure details
+* Inspect the scripts before run the procedure, adjust the variables to your requirements (Network ranges, IPs, server names, etc).
+* Some of the steps needs from a SSH keys, pull secrets or a valid cert from your internal registry, check the bundle of scripts and set it up accordingly.
 * The scripts are ordered by number, follow the sequence. Some of the steps have two choices, run the step based on your spoke deployment, SNO (Single Node OpenShift) or OCP3M (OpenShift 3 Masters).
